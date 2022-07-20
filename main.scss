@@ -1,0 +1,116 @@
+// Variables
+$color-primary: #A6D1E6;
+$h1-text: #990000;
+
+// Global
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    // font-size: 62.5%;
+    font-family: 'Kalam', cursive;
+}
+
+body {
+    background-color: $color-primary;
+}
+
+// Actual Styling for page
+.container {
+    // Overall container that holds the 3 rows
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // trying to make responsive
+    flex-wrap: wrap;
+
+    &-header {
+        // Only Header
+        font-weight: 400;
+        margin: 1.5rem 0 2rem 0;
+        color: $h1-text;
+    }
+
+    // TODO:
+    // 1. Adjust span for each element. 
+    // 2. Add rest of the animals
+    &-1 {
+        // First Row
+        display: flex;
+    }
+}
+
+.animal {
+
+    // FIXME:
+    // 1. Some animals do not look like they're center
+    // ------------------------------------------------------------
+    // Style for each animal to be the same
+    // each animal will have margin-left except last
+    &:not(last-child) {
+        margin-left: 1.5rem;
+    }
+
+    border-radius: 50%;
+    height: 18rem;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    position: relative;
+    cursor: pointer;
+
+    // Background color for each animal
+    &-1 {
+        background-color: orange;
+    }
+
+    &-2 {
+        background-color: #3EC70B;
+    }
+
+    &-3 {
+        background-color: #FFAC8E;
+    }
+
+    &-4 {
+        background-color: #440047;
+    }
+
+    &-picture-1 {
+        // Making picture scalable and fit inside circle
+        height: 80%;
+        width: 80%;
+        // perfect center
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &-name {
+        // making it fit bottom under picture
+        position: absolute;
+        top: 90%;
+    }
+
+    &-quote {
+        clip-path: polygon(5% 0%, 95% 0%, 100% 5%, 100% 80%, 95% 85%, 58% 85%, 38.59% 99.74%, 33.62% 85%, 5% 85%, 0% 80%, 0% 5%);
+        background-color: #fff;
+        height: 3rem;
+        width: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
