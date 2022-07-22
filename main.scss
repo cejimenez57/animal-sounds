@@ -1,3 +1,5 @@
+// TODO:
+// FIXME: image hides part of the animal quote
 // Variables
 $color-primary: #A6D1E6;
 $h1-text: #990000;
@@ -16,8 +18,18 @@ $h1-text: #990000;
 }
 
 html {
-    // font-size: 62.5%;
+    font-size: 62.5%;
     font-family: 'Kalam', cursive;
+}
+
+h4 {
+    font-size: 1.3rem;
+    letter-spacing: .2rem;
+    font-weight: 200;
+}
+
+span {
+    font-size: 1.25rem;
 }
 
 body {
@@ -30,8 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // trying to make responsive
-    flex-wrap: wrap;
+    max-height: 100vh;
 
     &-header {
         // Only Header
@@ -41,19 +52,34 @@ body {
     }
 
     // TODO:
-    // 1. Adjust span for each element. 
-    // 2. Add rest of the animals
+    // select all container divs except last child to add margin-bottom
     &-1 {
         // First Row
         display: flex;
+        margin: 2rem 0 2rem;
+        // trying to make responsive
+        flex-wrap: wrap;
+    }
+
+    &-2 {
+        // First Row
+        display: flex;
+        margin: 2rem 0 2rem;
+        // trying to make responsive
+        flex-wrap: wrap;
+    }
+
+    &-3 {
+        // First Row
+        display: flex;
+        margin: 2rem 0 2rem;
+        // trying to make responsive
+        flex-wrap: wrap;
     }
 }
 
 .animal {
 
-    // FIXME:
-    // 1. Some animals do not look like they're center
-    // ------------------------------------------------------------
     // Style for each animal to be the same
     // each animal will have margin-left except last
     &:not(last-child) {
@@ -73,22 +99,105 @@ body {
     // Background color for each animal
     &-1 {
         background-color: orange;
+
+        &_horse {
+            color: #733C3C;
+        }
     }
 
     &-2 {
         background-color: #3EC70B;
+
+        &_sheep {
+            transform: rotate(-30deg);
+            position: absolute;
+            left: 3rem;
+        }
     }
 
     &-3 {
         background-color: #FFAC8E;
+
+        &_catname {
+            color: rgb(66, 2, 2);
+        }
     }
 
     &-4 {
         background-color: #440047;
+
+        &_pig {
+            position: absolute;
+            right: 2rem;
+            top: -0.5rem;
+            transform: rotate(30deg);
+        }
+
+        &_pigname {
+            color: rgb(135, 215, 135);
+        }
+    }
+
+    &-5 {
+        background-color: #FF9292;
+    }
+
+    &-6 {
+        background-color: #FFEA11;
+
+        &_owl {
+            color: #f95b5b;
+        }
+    }
+
+    &-7 {
+        background-color: #357C3C;
+
+        &_duck {
+            color: yellow;
+        }
+    }
+
+    &-8 {
+        background-color: #EF5B0C;
+
+        &_bird {
+            color: #fff;
+        }
+    }
+
+    &-9 {
+        background-color: #06283D;
+
+        &_lion {
+            color: #A0D995;
+        }
+    }
+
+    &-10 {
+        background-color: #FAF0D7;
+    }
+
+    &-11 {
+        background-color: #1F4690;
+
+        &_frog {
+            color: #FFD9C0;
+        }
+    }
+
+    &-12 {
+        background-color: #748DA6;
+
+        &_cow {
+            color: #e7ba3f;
+        }
     }
 
     &-picture-1 {
         // Making picture scalable and fit inside circle
+        // Applies to all animal pictures - do not remove class name from any
+        // animal. Will effect the picture
         height: 80%;
         width: 80%;
         // perfect center
@@ -96,6 +205,7 @@ body {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        object-fit: contain;
     }
 
     &-name {
@@ -111,6 +221,51 @@ body {
         width: 5rem;
         display: flex;
         align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+}
+
+// Media Queries
+@media only screen and (max-width: 915px) {
+    .animal {
+        margin-bottom: 1rem;
+    }
+
+    .container-1,
+    .container-2,
+    .container-3 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .container-1 {
+        width: 60%;
+        flex-wrap: wrap;
+    }
+
+    .container-2 {
+        width: 60%;
+        flex-wrap: wrap;
+    }
+
+    .container-3 {
+        width: 60%;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 649px) {
+    .container-1 {
+        justify-content: center;
+    }
+
+    .container-2 {
+        justify-content: center;
+    }
+
+    .container-3 {
         justify-content: center;
     }
 }
